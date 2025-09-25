@@ -48,9 +48,12 @@ flowchart LR
     A --> B[Agent B - LLM Explains Anomalies]
     B --> C[Agent C - Logs to Redshift]
     C --> D[Analytics Dashboards]
+
     subgraph Orchestration
-        LangGraph manages A --> B --> C flow
+        A --> B
+        B --> C
     end
+
 ````
 
 ![Fraud Detection Architecture](fraud_architecture.png)
