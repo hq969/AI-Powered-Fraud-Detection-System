@@ -1,0 +1,4 @@
+openai
+kafka-python
+psycopg2-binary
+python-dotenv
