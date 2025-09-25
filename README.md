@@ -1,45 +1,20 @@
-# AI-Powered Fraud Detection System 🛡️
+# AI-Powered Fraud Detection Workflow
 
-An **intelligent, real-time fraud detection system** that uses **LangGraph, LangChain agents, Kafka/AWS Kinesis, AWS Redshift, and Python** to detect, explain, and log anomalies in transactions.
-
----
-
-## 🚀 Features
-
-* **Real-Time Fraud Detection:** Streams transactions via **Kafka or AWS Kinesis**
-* **Multi-Agent Processing:**
-
-  * **Agent A:** Rule-based checks
-  * **Agent B:** LLM-generated explanations in natural language
-  * **Agent C:** Logs results into **Redshift** for analytics dashboards
-* **Orchestration:** **LangGraph** manages agent workflows
-* **Scalable & Cloud-Ready:** Designed for production on **AWS**
-* **Analytics Integration:** Provides dashboards for monitoring fraud patterns
-  
----
-
-## 📂 Project Structure
-
-```
-fraud_detection/
-├── agents/
-│   ├── agent_a.py      # Rule-based fraud detection
-│   ├── agent_b.py      # LLM explanations
-│   └── agent_c.py      # Logging to Redshift
-├── orchestrator/
-│   └── langgraph_flow.py
-├── streams/
-│   └── kafka_consumer.py
-├── utils/
-│   └── redshift_client.py
-├── run_agents.py
-├── requirements.txt
-└── .env.example
-```
+This project implements a real-time fraud detection system using **multi-agent orchestration**. It combines rule-based checks, large language model explanations, and analytics logging to provide actionable insights on anomalous transactions.
 
 ---
 
-## 🏗 Architecture
+## Features
+
+- **Real-Time Transaction Monitoring**: Ingests transactions via **Kafka** or **AWS Kinesis** streams.  
+- **Agent A - Rule-Based Checks**: Applies predefined rules to detect suspicious activity.  
+- **Agent B - LLM Explanations**: Uses a Large Language Model (LLM) to explain anomalies in natural language.  
+- **Agent C - Logging & Analytics**: Logs all transaction anomalies into **Amazon Redshift** for dashboards and reporting.  
+- **Orchestration**: **LangGraph** manages the flow between agents to ensure smooth and scalable processing.  
+
+---
+
+## Architecture
 
 ```mermaid
 flowchart LR
@@ -50,60 +25,83 @@ flowchart LR
     subgraph Orchestration
         LangGraph manages A --> B --> C flow
     end
-```
+````
+
+![Fraud Detection Architecture](fraud_architecture.png)
 
 ---
 
-## ⚙️ Setup
+## Tech Stack
 
-### 1. Clone Repository
-
-```bash
-git clone https://github.com/hq969/fraud-detection-system.git
-cd fraud-detection-system
-```
-
-### 2. Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Configure Environment
-
-Copy `.env.example` → `.env` and add your keys:
-
-```
-OPENAI_API_KEY=your_openai_api_key
-REDSHIFT_HOST=your_redshift_host
-REDSHIFT_PORT=5439
-REDSHIFT_DB=your_db
-REDSHIFT_USER=your_user
-REDSHIFT_PASSWORD=your_password
-KAFKA_BROKER_URL=localhost:9092
-```
-
-### 4. Run Locally
-
-```bash
-python run_agents.py
-```
+* **Languages & Frameworks**: Python
+* **Messaging & Streaming**: Kafka / AWS Kinesis
+* **LLM & NLP**: LangChain / Custom LLM Integration
+* **Data Storage**: Amazon Redshift
+* **Orchestration**: LangGraph
+* **Visualization**: Analytics Dashboards (Redshift + BI Tool)
 
 ---
 
-## 💡 Benefits
+## Setup Guide
 
-* Detects fraud in **real-time**, improving financial security
-* Generates **human-readable explanations** for anomalies
-* Logs results to **Redshift**, enabling dashboard analytics
-* Easily extendable to new agents or streaming sources
+1. **Install Mermaid CLI** (for diagram generation):
+
+   ```bash
+   npm install -g @mermaid-js/mermaid-cli
+   ```
+
+2. **Save diagram to a `.mmd` file**:
+
+   ```bash
+   echo 'flowchart LR
+       T[Transaction Stream - Kafka/Kinesis] --> A[Agent A - Rule-Based Checks]
+       A --> B[Agent B - LLM Explains Anomalies]
+       B --> C[Agent C - Logs to Redshift]
+       C --> D[Analytics Dashboards]
+       subgraph Orchestration
+           LangGraph manages A --> B --> C flow
+       end' > fraud_architecture.mmd
+   ```
+
+3. **Generate PNG diagram**:
+
+   ```bash
+   mmdc -i fraud_architecture.mmd -o fraud_architecture.png
+   ```
+
+4. **Install project dependencies**:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. **Run the application**:
+
+   ```bash
+   python main.py
+   ```
 
 ---
 
-## 👨‍💻 Author
+## Usage
 
-Built by **Harsh Sonkar** ⚡
+1. Ingest transaction data from your stream (Kafka/Kinesis).
+2. Agent A will flag transactions based on rules.
+3. Agent B generates human-readable explanations for anomalies.
+4. Agent C logs everything into Redshift for analytics and dashboard visualizations.
 
 ---
 
+## Impact
 
+* **Scalable & Real-Time**: Detects fraud in near real-time.
+* **Explainable AI**: LLM provides context for flagged transactions.
+* **Integrated Analytics**: All anomalies are logged for monitoring, reporting, and dashboarding.
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
