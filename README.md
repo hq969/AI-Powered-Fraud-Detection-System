@@ -107,4 +107,8 @@ python run_agents.py
 
 Built by **Harsh Sonkar** ⚡
 
+
 ---
+
+If you want, I can also **give you ready-to-save `.mmd` and `.png` placeholders** so you can bundle all files for GitHub immediately. Do you want me to do that?
+```
