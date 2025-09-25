@@ -6,21 +6,21 @@ An **intelligent, real-time fraud detection system** that uses **LangGraph, Lang
 
 ## 🚀 Features
 
-* **Real-Time Fraud Detection:** Streams transactions via **Kafka or AWS Kinesis**
+* **Real-Time Fraud Detection:** Streams transactions via **Kafka or AWS Kinesis**  
 * **Multi-Agent Processing:**
-
-  * **Agent A:** Rule-based checks
-  * **Agent B:** LLM-generated explanations in natural language
-  * **Agent C:** Logs results into **Redshift** for analytics dashboards
-* **Orchestration:** **LangGraph** manages agent workflows
-* **Scalable & Cloud-Ready:** Designed for production on **AWS**
-* **Analytics Integration:** Provides dashboards for monitoring fraud patterns
+  * **Agent A:** Rule-based checks  
+  * **Agent B:** LLM-generated explanations in natural language  
+  * **Agent C:** Logs results into **Redshift** for analytics dashboards  
+* **Orchestration:** **LangGraph** manages agent workflows  
+* **Scalable & Cloud-Ready:** Designed for production on **AWS**  
+* **Analytics Integration:** Provides dashboards for monitoring fraud patterns  
 
 ---
 
 ## 📂 Project Structure
 
 ```
+
 fraud_detection/
 ├── agents/
 │   ├── agent_a.py      # Rule-based fraud detection
@@ -35,7 +35,8 @@ fraud_detection/
 ├── run_agents.py
 ├── requirements.txt
 └── .env.example
-```
+
+````
 
 ---
 
@@ -50,8 +51,9 @@ flowchart LR
     subgraph Orchestration
         LangGraph manages A --> B --> C flow
     end
+````
 
-```
+![Fraud Detection Architecture](fraud_architecture.png)
 
 ---
 
