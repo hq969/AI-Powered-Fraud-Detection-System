@@ -15,7 +15,7 @@ An **intelligent, real-time fraud detection system** that uses **LangGraph, Lang
 * **Orchestration:** **LangGraph** manages agent workflows
 * **Scalable & Cloud-Ready:** Designed for production on **AWS**
 * **Analytics Integration:** Provides dashboards for monitoring fraud patterns
-
+  
 ---
 
 ## 📂 Project Structure
